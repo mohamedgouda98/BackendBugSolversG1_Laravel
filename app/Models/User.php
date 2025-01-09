@@ -12,6 +12,24 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+
+    public function Token()
+    {
+        return $this->hasOne(Token::class, 'user_id','id');
+    }
+
+    public function post()
+    {
+        return $this->hasOne(Post::class,'user_id', 'id');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'user_id', 'id');
+    }
+
+
+
     /**
      * The attributes that are mass assignable.
      *

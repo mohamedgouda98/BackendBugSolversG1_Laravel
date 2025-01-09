@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -10,19 +11,22 @@ class CategoriesController extends Controller
 {
     public function create()
     {
-        return view('categories.create');
+        $departments = Department::get();
+        return view('categories.create', compact('departments'));
     }
 
     public function store(Request $request)
     {
        $request->validate([
            'name' => 'required|min:3|max:10',
-           'description' => 'required'
+           'description' => 'required',
+           'department_id' => 'required'
        ]);
         Category::create([
             'name' => $request->name,
             'description' => $request->description,
-            'slug' => $request->slug
+            'slug' => $request->slug,
+            'department_id' => $request->department_id
         ]);
         session()->flash('message', 'Category was Created');
         return to_route('categories');
@@ -30,21 +34,24 @@ class CategoriesController extends Controller
 
     public function index()
     {
-        $categories = Category::get();
+        $categories = Category::with('department')->get();
         return view('categories.index', compact('categories'));
     }
 
     public function edit($categoryId)
     {
         $category = Category::where('id', $categoryId)->first();
-        return view('categories.edit', compact('category'));
+        $departments = Department::get();
+
+        return view('categories.edit', compact('category','departments'));
     }
 
     public function update(Request $request)
     {
         $request->validate([
             'name' => 'required|min:3|max:10',
-            'description' => 'required'
+            'description' => 'required',
+            'department_id' => 'required'
         ]);
         $category = Category::where('id', $request->category_id)->first();
         if($category)
@@ -52,7 +59,8 @@ class CategoriesController extends Controller
             $category->update([
                 'name' => $request->name,
                 'slug' => $request->slug,
-                'description' => $request->description
+                'description' => $request->description,
+                'department_id' => $request->department_id
             ]);
 
             session()->flash('message', 'Category was updated');

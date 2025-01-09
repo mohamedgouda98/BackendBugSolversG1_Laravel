@@ -8,5 +8,15 @@
 @error('description')
 <p style="color: #f00">{{$message}}</p><br>
 @enderror
-<button type="submit">Save</button>
 
+<select name="department_id">
+    @foreach($departments as $department)
+        <option value="{{$department->id}}" @selected(isset($category) && $category->department_id == $department->id) >{{$department->name}}</option>
+    @endforeach
+</select>
+@error('department_id')
+<p style="color: #f00">{{$message}}</p><br>
+@enderror
+<br>
+<br>
+<button type="submit">Save</button>

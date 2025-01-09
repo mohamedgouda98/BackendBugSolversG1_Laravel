@@ -28,6 +28,7 @@
         <td>Name</td>
         <td>Slug</td>
         <td>Description</td>
+        <td>Department</td>
         <td>Edit</td>
         <td>Actions</td>
     </tr>
@@ -40,6 +41,7 @@
                <td>{{$category->name}}</td>
                <td>{{$category->slug}}</td>
                <td>{{$category->description}}</td>
+               <td>{{$category->department->name}}</td>
                <td><a href="{{route('categories.edit',[$category->id])}}">Edit</a></td>
                <td>
                    <form method="post" action="{{route('categories.delete')}}">
