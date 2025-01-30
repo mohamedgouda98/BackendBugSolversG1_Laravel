@@ -1,21 +1,17 @@
 <?php
 
 
+use App\Http\Controllers\Dashboard\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function(){
+Route::group(['prefix' => 'dashboard','as' => 'dashboard.'],function(){
 
-    return view('index');
-});
+    Route::get('sliders', function(){
+        return view('dashboard.sliders.create');
+    });
 
-Route::get('/contact', function(){
-
-    return view('contact');
-});
-
-Route::get('/aboutus', function(){
-
-    return view('aboutus');
+    Route::get('login', [AuthController::class,'loginPage'])->name('loginPage');
+    Route::post('login', [AuthController::class,'login'])->name('login');
 });
 
 
