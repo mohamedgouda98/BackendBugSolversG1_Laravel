@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Department;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class CategoriesController extends Controller
@@ -29,11 +30,12 @@ class CategoriesController extends Controller
             'department_id' => $request->department_id
         ]);
         session()->flash('message', 'Category was Created');
-        return to_route('categories');
+        return to_route('categories.index');
     }
 
     public function index()
     {
+//        $categories = Category::get();
         $categories = Category::with('department')->get();
         return view('categories.index', compact('categories'));
     }
@@ -64,9 +66,9 @@ class CategoriesController extends Controller
             ]);
 
             session()->flash('message', 'Category was updated');
-            return to_route('categories');
+            return to_route('categories.index');
         }
-        return to_route('categories')->withErrors('Category not found');
+        return to_route('categories.index')->withErrors('Category not found');
     }
 
     public function delete(Request $request)
@@ -76,8 +78,8 @@ class CategoriesController extends Controller
         {
             $category->delete();
             session()->flash('message', 'Category was Deleted');
-            return to_route('categories');
+            return to_route('categories.index');
         }
-        return to_route('categories')->withErrors('Category not found');
+        return to_route('categories.index')->withErrors('Category not found');
     }
 }
