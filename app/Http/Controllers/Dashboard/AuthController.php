@@ -24,7 +24,7 @@ class AuthController extends Controller
 
         if(Auth::attempt($autKeys))
         {
-            dd('yes');
+            return redirect(route('dashboard.sliders.create'));
         }
 
         return back();

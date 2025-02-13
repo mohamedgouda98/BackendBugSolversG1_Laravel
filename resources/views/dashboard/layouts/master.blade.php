@@ -78,8 +78,10 @@
 @yield('content')
 
 
+@include('sweetalert::alert')
 
 @include('dashboard.layouts._footer')
+
 <!-- Scripts -->
 <script src="{{asset('DashboardAssets/assets/js/core.bundle.js')}}">
 </script>
