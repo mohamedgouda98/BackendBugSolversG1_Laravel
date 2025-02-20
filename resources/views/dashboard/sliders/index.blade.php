@@ -59,7 +59,7 @@
                   <tr>
                       <td>
                           <div class="flex items-center gap-2.5">
-                              <img alt="" class="rounded-full size-9 shrink-0" src="{{asset('DashboardAssets/assets/media/avatars/300-1.png')}}"/>
+                              <img alt="" class="rounded-full size-9 shrink-0" src="{{asset($slider->image)}}"/>
                               <div class="flex flex-col">
                                       {{$slider->title}}
                               </div>

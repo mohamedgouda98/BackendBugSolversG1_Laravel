@@ -8,28 +8,21 @@
     <section class="banner">
       <div class="swiper-container">
         <div class="swiper-wrapper h-700 h-sm-500">
-          <div class="swiper-slide align-items-center d-flex responsive-overlap-md bg-overlay-black-30" style="background-image:url(images/slider/01.jpg); background-size: cover; background-position: center center;">
-            <div class="swipeinner container">
-              <div class="row justify-content-center">
-                <div class="col-lg-9 col-md-10 text-center position-relative">
-                  <h1 data-swiper-animation="fadeInUp" data-duration="1s" data-delay="0.25s">A digital marketing company you can trust</h1>
-                  <h6 data-swiper-animation="fadeInUp" data-duration="1s" data-delay="0.5s">Award-Winning website design & creative digital agency.</h6>
-                  <a class="btn btn-dark btn-round text-white" data-swiper-animation="fadeInUp" data-duration="1s" data-delay="0.75s" href="#">Get Started Now<i class="fas fa-arrow-right ps-3"></i></a>
+
+            @foreach($sliders as $slider)
+                <div class="swiper-slide align-items-center d-flex responsive-overlap-md bg-overlay-black-30" style="background-image:url({{$slider->image}}); background-size: cover; background-position: center center;">
+                    <div class="swipeinner container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9 col-md-10 text-center position-relative">
+                                <h1 data-swiper-animation="fadeInUp" data-duration="1s" data-delay="0.25s">{{$slider->title}}</h1>
+                                <a class="btn btn-dark btn-round text-white" data-swiper-animation="fadeInUp" data-duration="1s" data-delay="0.75s" href="{{$slider->url}}">{{$slider->url_title}}<i class="fas fa-arrow-right ps-3"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide align-items-center d-flex responsive-overlap-md bg-overlay-black-30" style="background-image:url(images/slider/02.jpg); background-size: cover; background-position: center center;">
-            <div class="swipeinner container">
-              <div class="row justify-content-center">
-                <div class="col-lg-9 col-md-11 text-center position-relative">
-                  <h1 data-swiper-animation="fadeInUp" data-duration="1s" data-delay="0.25s">Award winning digital agency</h1>
-                  <h6 data-swiper-animation="fadeInUp" data-duration="1s" data-delay="0.5s">We're Hi-soft. We help drive change with technology.</h6>
-                  <a class="btn btn-dark btn-round text-white" data-swiper-animation="fadeInUp" data-duration="1s" data-delay="0.75s" href="#">View Our Solution<i class="fas fa-arrow-right ps-3"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+            @endforeach
+
+
         </div>
         <div class="swiper-button-prev"><i class="fas fa-arrow-left icon-btn"></i></div>
         <div class="swiper-button-next"><i class="fas fa-arrow-right icon-btn"></i></div>

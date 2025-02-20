@@ -11,7 +11,7 @@
          Basic Settings
         </h3>
        </div>
-      <form method="post" action="{{route('dashboard.sliders.update',$slider->id)}}">
+      <form method="post" action="{{route('dashboard.sliders.update',$slider->id)}}" enctype="multipart/form-data">
           @csrf
           @include('dashboard.sliders._form')
       </form>

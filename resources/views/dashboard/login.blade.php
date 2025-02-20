@@ -43,7 +43,7 @@
   </style>
   <div class="flex items-center justify-center grow bg-center bg-no-repeat page-bg">
    <div class="card max-w-[370px] w-full">
-    <form action="{{route('dashboard.login')}}" class="card-body flex flex-col gap-5 p-10" id="sign_in_form" method="post">
+    <form action="{{route('login')}}" class="card-body flex flex-col gap-5 p-10" id="sign_in_form" method="post">
         @csrf
      <div class="text-center mb-2.5">
       <h3 class="text-lg font-medium text-gray-900 leading-none mb-2.5">

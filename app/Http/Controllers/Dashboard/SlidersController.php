@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Slider;
+use App\Traits\UploaderTrait;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class SlidersController extends Controller
 {
-
+    use UploaderTrait;
     public function index()
     {
         $sliders = Slider::get();
@@ -27,10 +28,14 @@ class SlidersController extends Controller
             'title' => 'required',
             'url' => 'required',
             'url_title' => 'required',
+            'image' => 'required'
         ]);
 
+        $image = $request->file('image');
+        $fileName = 'slider_' . time() . '.' . $image->getClientOriginalExtension();
+        $this->uploadfile($image, 'images/sliders' ,$fileName);
         Slider::create([
-            'image' => "rest.png",
+            'image' => $fileName,
             'title' => $request->title,
             'url' => $request->url,
             'url_title' => $request->url_title
@@ -49,7 +54,12 @@ class SlidersController extends Controller
         {
             Alert::error('Slider', 'Slider not found');
         }else{
+
+            $oldImage =  'images/sliders/' .$slider->getRawOriginal('image');
+
             $slider->delete();
+
+            $this->deletefile($oldImage);
 
             Alert::success('Slider', 'Slider Deleted');
         }
@@ -82,10 +92,19 @@ class SlidersController extends Controller
         {
             Alert::error('Slider', 'Slider not found');
         }else {
+
+            if($request->has('image'))
+            {
+                $image = $request->file('image');
+                $fileName = 'slider_' . time() . '.' . $image->getClientOriginalExtension();
+                $this->uploadfile($image, 'images/sliders/' ,$fileName, $slider->getRawOriginal('image'));
+            }
+
             $slider->update([
                 'title' => $request->title,
                 'url' => $request->url,
                 'url_title' => $request->url_title,
+                'image' => $fileName ?? $slider->image
             ]);
         }
 
