@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
 use App\Models\Client;
-use App\Traits\UploaderTrait;
 use Illuminate\Http\Request;
-
+use App\Traits\UploaderTrait;
 use function PHPSTORM_META\map;
+
+use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ClientController extends Controller
 {
@@ -50,4 +51,28 @@ class ClientController extends Controller
 
         return redirect(route('dashboard.clients.index'));
     }
+
+    public function show(Client $client)
+    {
+      return view('dashboard.clients.show',compact('client'));
+    }
+
+
+    public function destroy(Client $client)
+    {
+        $oldImage =  $client->getRawOriginal('image');
+        $oldLogo =  $client->getRawOriginal('logo');
+        
+        $this->deleteFile($oldImage);
+        $this->deleteFile($oldLogo);
+        
+        $client->delete();
+
+
+
+        Alert::success('Client', $client->name.' Deleted');
+        return back();
+    }
+
+    
 }

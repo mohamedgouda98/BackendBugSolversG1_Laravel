@@ -33,7 +33,7 @@ Route::group(['prefix' => 'dashboard'],function(){
         Route::get('clients/edit/{client}',[ClientController::class,'edit'])->name('client.edit');
         Route::put('clients',[ClientController::class,'update'])->name('client.update');
 
-        Route::delete('clients/delete/{client}',[ClientController::class,'delete'])->name('client.delete');
+        Route::get('clients/delete/{client}',[ClientController::class,'destroy'])->name('client.delete');
 
     });
 

@@ -19,10 +19,10 @@ class ClientFactory extends Factory
     public function definition(): array
     {
 
-        $fakeLogo = UploadedFile::fake()->image('logo.png', 100, 40);
+        $fakeLogo = UploadedFile::fake()->image('logo.png', 10, 20);
         $logoPath = $fakeLogo->store('images/clients/logos', 'public');
 
-        $fakeImage = UploadedFile::fake()->image('client.png', 360, 360);
+        $fakeImage = UploadedFile::fake()->image('client.png', 100, 100);
         $imagePath = $fakeImage->store('images/clients/image', 'public');
         
         return [

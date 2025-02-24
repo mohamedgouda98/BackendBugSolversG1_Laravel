@@ -85,11 +85,6 @@
               </thead>
               <tbody>
 
-                {{-- name
-logo
-image
-url
-description --}}
               @foreach($clients as $client)
                   <tr>
                     <td class="text-gray-10 font-normal">
@@ -99,7 +94,8 @@ description --}}
                   </td>
                       <td>
                             <div class="flex flex-col">
-                                    {{$client->name}}
+                                     <a href="{{ route('dashboard.clients.show',$client->id) }}">  {{$client->name}}</a>
+                                   
                             </div>
 
                       </td>

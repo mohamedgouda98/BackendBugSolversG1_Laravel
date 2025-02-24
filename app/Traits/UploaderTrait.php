@@ -12,13 +12,13 @@ trait UploaderTrait
 
         if($oldImage)
         {
-           $this->deletefile($path.$oldImage);
+           $this->deleteFile($path.$oldImage);
         }
 
         return $filePath;
     }
 
-    public function deletefile($path)
+    public function deleteFile($path)
     {
         return Storage::disk('public')->delete($path);
     }
