@@ -1,14 +1,16 @@
 @extends('dashboard.layouts.master')
 @section('content')
-    <!-- Main -->
+<!-- Main -->
+<div class="d-flex">
+  <a href="{{route('dashboard.client.create')}}" class="mx-5 btn btn-success">Add Client</a>
+</div>
      <div class="flex flex-col grow lg:scrollable-y-auto lg:[scrollbar-width:auto] lg:light:[--tw-scrollbar-thumb-color:var(--tw-content-scrollbar-color)] pt-5" id="scrollable_content">
       <main class="grow" role="content">
-
        <!-- Container -->
        <div class="container-fixed">
         <div class="grid gap-5 lg:gap-7.5">
-         <div class="card card-grid min-w-full">
-          <div class="card-body">
+          <div class="card card-grid min-w-full">
+            <div class="card-body">
            <div data-datatable="true" data-datatable-state-save="false" id="team_crew_table">
             <div class="scrollable-x-auto">
              <table class="table table-auto table-border" data-datatable-table="true">

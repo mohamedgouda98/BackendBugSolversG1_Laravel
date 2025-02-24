@@ -22,9 +22,7 @@ Route::group(['prefix' => 'dashboard'],function(){
         Route::get('sliders/edit/{id}', [SlidersController::class,'edit'])->name('sliders.edit');
         Route::post('sliders/update/{id}', [SlidersController::class,'update'])->name('sliders.update');
 
-    });
 
-    Route::group(['middleware'=>'auth','as' => 'dashboard.'],function(){
 
         Route::get('clients',[ClientController::class,'index'])->name('clients.index');
         Route::get('clients/show/{client}',[ClientController::class,'show'])->name('clients.show');
