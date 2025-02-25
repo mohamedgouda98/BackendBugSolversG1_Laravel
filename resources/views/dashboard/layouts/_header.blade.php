@@ -22,7 +22,11 @@
                 <div class="menu" data-menu="true">
                     <div class="menu-item" data-menu-item-offset="0px, 9px" data-menu-item-placement="bottom-end" data-menu-item-placement-rtl="bottom-start" data-menu-item-toggle="dropdown" data-menu-item-trigger="click|lg:click">
                         <div class="menu-toggle btn btn-icon rounded-full">
+<<<<<<< HEAD
                             <img alt="" class="size-8 rounded-full justify-center border border-gray-500 shrink-0" src="assets/media/avatars/gray/5.png">
+=======
+                            <img alt="" class="size-8 rounded-full justify-center border border-gray-500 shrink-0" src="{{ asset('DashboardAssets/assets/media/avatars/gray/5.png') }}">
+>>>>>>> master
                             </img>
                         </div>
                         <div class="menu-dropdown menu-default light:border-gray-300 w-screen max-w-[250px]">

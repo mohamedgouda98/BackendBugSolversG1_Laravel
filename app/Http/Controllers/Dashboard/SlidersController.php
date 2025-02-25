@@ -56,7 +56,10 @@ class SlidersController extends Controller
         }else{
 
             $oldImage =  'images/sliders/' .$slider->getRawOriginal('image');
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
             $slider->delete();
 
             $this->deletefile($oldImage);
