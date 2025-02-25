@@ -1,19 +1,12 @@
 <?php
 
 
-<<<<<<< HEAD
-use App\Http\Controllers\Dashboard\AuthController;
-use App\Http\Controllers\Dashboard\SlidersController;
-use App\Http\Controllers\EndUser\HomeController;
-use Illuminate\Support\Facades\Route;
-=======
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EndUser\HomeController;
 use App\Http\Controllers\EndUser\UserController;
 use App\Http\Controllers\Dashboard\AuthController;
 use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\SlidersController;
->>>>>>> master
 
 Route::group(['prefix' => 'dashboard'],function(){
 
@@ -29,8 +22,6 @@ Route::group(['prefix' => 'dashboard'],function(){
         Route::get('sliders/edit/{id}', [SlidersController::class,'edit'])->name('sliders.edit');
         Route::post('sliders/update/{id}', [SlidersController::class,'update'])->name('sliders.update');
 
-<<<<<<< HEAD
-=======
 
 
         Route::get('clients',[ClientController::class,'index'])->name('clients.index');
@@ -44,7 +35,6 @@ Route::group(['prefix' => 'dashboard'],function(){
 
         Route::get('clients/delete/{client}',[ClientController::class,'destroy'])->name('client.delete');
 
->>>>>>> master
     });
 
 

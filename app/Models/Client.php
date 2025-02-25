@@ -3,12 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
-
-class Client extends Model
-{
-    //
-=======
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Client extends Model
@@ -26,5 +20,4 @@ class Client extends Model
     {
         return 'storage/images/clients/logos/' . $value;
     }
->>>>>>> master
 }
