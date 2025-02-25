@@ -31,7 +31,7 @@ Route::group(['prefix' => 'dashboard'],function(){
         Route::post('clients',[ClientController::class,'store'])->name('client.store');
 
         Route::get('clients/edit/{client}',[ClientController::class,'edit'])->name('client.edit');
-        Route::put('clients',[ClientController::class,'update'])->name('client.update');
+        Route::put('clients/{client}',[ClientController::class,'update'])->name('client.update');
 
         Route::get('clients/delete/{client}',[ClientController::class,'destroy'])->name('client.delete');
 

@@ -15,7 +15,7 @@ trait UploaderTrait
            $this->deleteFile($path.$oldImage);
         }
 
-        return $filePath;
+        // return $filePath;
     }
 
     public function deleteFile($path)

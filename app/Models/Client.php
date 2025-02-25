@@ -14,10 +14,10 @@ class Client extends Model
 
     public function getImageAttribute($value)
     {
-        return 'storage/' . $value;
+        return 'storage/images/clients/image/' . $value;
     }
     public function getLogoAttribute($value)
     {
-        return 'storage/' . $value;
+        return 'storage/images/clients/logos/' . $value;
     }
 }

@@ -10,7 +10,8 @@ description --}}
           <label class="form-label flex items-center gap-1 max-w-56">
               Name
           </label>
-          <input class="input" name="name" type="text" value="{{old('title',(isset($client) ? $client->name : ""))}}">
+          <input class="input" name="name" type="text" value="{{old('name',(isset($client) ? $client->name : ""))}}">
+          
           @error('title')
           <p>{{$message}}</p>
           @enderror

@@ -8,7 +8,7 @@
       <div class="card pb-2.5">
        <div class="card-header" id="basic_settings">
         <h3 class="card-title">
-         Basic Settings
+         Create A Client
         </h3>
        </div>
        @if ($errors->any())

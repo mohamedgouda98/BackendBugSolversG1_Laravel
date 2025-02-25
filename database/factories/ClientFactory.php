@@ -27,8 +27,8 @@ class ClientFactory extends Factory
         
         return [
             'name' => fake()->unique()->name,
-            'logo' => $logoPath,
-            'image' => $imagePath,
+            'logo' => str_replace('images/clients/logos/','',$logoPath),
+            'image' =>str_replace('images/clients/image/','',$imagePath),
             'url' => fake()->unique()->url(),
             'description' => fake()->text(),
         ];
