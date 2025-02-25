@@ -29,7 +29,7 @@ class ClientController extends Controller
     {
         $validated = $request->validate([
             'name'=> 'required|string|min:3',
-            'description'=> 'required|string|between:3,255',
+            'description'=> 'required|string',
             'url' => 'required|string|url',
         ]);
 
@@ -56,6 +56,8 @@ class ClientController extends Controller
     {
       return view('dashboard.clients.show',compact('client'));
     }
+
+
 
 
     public function destroy(Client $client)
