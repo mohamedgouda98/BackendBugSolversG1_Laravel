@@ -36,11 +36,11 @@ class ClientController extends Controller
         ]);
 
         $logo = $request->file('logo');
-        $logoName = 'client_logo_' . time() . '.' . $logo->getClientOriginalExtension();
+        $logoName = 'client_logo_' . time() . '_' . $logo->getClientOriginalName();
         $this->uploadfile($logo, 'images/clients/logos', $logoName);
 
         $image = $request->file('image');
-        $imageName = 'client_image_' . time() . '.' . $image->getClientOriginalExtension();
+        $imageName = 'client_image_' . time() . '_' . $image->getClientOriginalName();
         $this->uploadfile($image, 'images/clients/image', $imageName);
 
         $validated = array_merge($validated, [
@@ -93,7 +93,7 @@ class ClientController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imageName = 'client_image_' . time() . '.' . $image->getClientOriginalExtension();
+            $imageName = 'client_image_' . time() . '_' . $image->getClientOriginalName();
 
             $this->uploadfile($image,
                               'images/clients/image/',
@@ -103,7 +103,7 @@ class ClientController extends Controller
 
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
-            $logoName = 'client_logo_' . time() . '.' . $logo->getClientOriginalExtension();
+            $logoName = 'client_logo_' . time() . '_' . $logo->getClientOriginalName();
 
             $this->uploadfile($logo,
                               'images/clients/logos/',

@@ -23,18 +23,11 @@ class DatabaseSeeder extends Seeder
 
 
         User::create([
-<<<<<<< HEAD
-            'name' => 'gouda',
-            'email' => 'gouda@gmail.com',
-            'password' => Hash::make('12345678')
-        ]);
-=======
             'name' => env('USER_NAME'),
             'email' => env('USER_EMAIL'),
             'password' => Hash::make(env('USER_PASSWORD'))
         ]);
 
         $this->call(ClientSeeder::class);
->>>>>>> master
     }
 }

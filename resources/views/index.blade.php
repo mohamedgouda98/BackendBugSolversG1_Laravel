@@ -45,14 +45,11 @@
               </div>
               <div class="brand-logo ps-4">
                 <div class="owl-carousel testimonial-center owl-nav-bottom-center" data-nav-arrow="false" data-items="5" data-md-items="4" data-sm-items="4" data-xs-items="3" data-xx-items="2" data-space="40" data-autoheight="true">
-<<<<<<< HEAD
-=======
                   @foreach ($clients as $client)
                   <div class="item">
                     <img class="img-fluid center-block mx-auto" src="{{ $client->logo }}" alt="">
                   </div>
                   @endforeach
->>>>>>> master
                   <div class="item">
                     <img class="img-fluid center-block mx-auto" src="images/client-logo/light/01.svg" alt="">
                   </div>

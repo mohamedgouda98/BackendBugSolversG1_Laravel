@@ -8,7 +8,7 @@ trait UploaderTrait
 {
     public function uploadfile($file,$path, $fileName, $oldImage = null)
     {
-        $filePath = $file->storeAs($path,$fileName,'public');
+        $file->storeAs($path,$fileName);
 
         if($oldImage)
         {
