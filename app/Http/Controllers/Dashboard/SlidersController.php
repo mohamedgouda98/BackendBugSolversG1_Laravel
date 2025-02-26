@@ -31,6 +31,8 @@ class SlidersController extends Controller
             'image' => 'required'
         ]);
 
+        
+
         $image = $request->file('image');
         $fileName = 'slider_' . time() . '.' . $image->getClientOriginalExtension();
         $this->uploadfile($image, 'images/sliders' ,$fileName);
@@ -54,9 +56,8 @@ class SlidersController extends Controller
         {
             Alert::error('Slider', 'Slider not found');
         }else{
-
+            
             $oldImage =  'images/sliders/' .$slider->getRawOriginal('image');
-
             $slider->delete();
 
             $this->deletefile($oldImage);
@@ -81,6 +82,8 @@ class SlidersController extends Controller
 
     public function update(Request $request,$id)
     {
+
+        
         $request->validate([
             'title' => 'required',
             'url' => 'required',
@@ -95,6 +98,9 @@ class SlidersController extends Controller
 
             if($request->has('image'))
             {
+
+                dd($request->image->getClientOriginalPath());
+                
                 $image = $request->file('image');
                 $fileName = 'slider_' . time() . '.' . $image->getClientOriginalExtension();
                 $this->uploadfile($image, 'images/sliders/' ,$fileName, $slider->getRawOriginal('image'));
