@@ -1,17 +1,19 @@
 <div class="card-body grid gap-5">
-    <div class="flex items-center flex-wrap gap-2.5">
+    <div class="w-full">
+    <div class="flex items-baseline flex-wrap lg:flex-nowrap gap-2.5">
         <label class="form-label max-w-56">
             Photo
         </label>
-        <div class="flex items-center justify-between flex-wrap grow gap-2.5">
+        <div class="flex items-baseline flex-wrap lg:flex-nowrap gap-2.5">
           <span class="text-2sm text-gray-700">
            150x150px JPEG, PNG Image
           </span>
-            <div class="size-16" data-image-input="true">
+            <div class="size-10" data-image-input="true">
                 <input accept=".png, .jpg, .jpeg" name="image" type="file">
             </div>
         </div>
     </div>
+</div>
     <div class="w-full">
         <div class="flex items-baseline flex-wrap lg:flex-nowrap gap-2.5">
             <label class="form-label flex items-center gap-1 max-w-56">
